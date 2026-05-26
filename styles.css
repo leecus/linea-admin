@@ -79,33 +79,10 @@ a {
 }
 
 .brand-symbol {
-  position: relative;
-  display: inline-block;
   width: 30px;
   height: 30px;
-  border: 1px solid var(--ink);
-  border-radius: 50%;
-}
-
-.brand-symbol::before,
-.brand-symbol::after {
-  position: absolute;
-  background: var(--ink);
-  content: "";
-}
-
-.brand-symbol::before {
-  top: 50%;
-  left: 5px;
-  width: 18px;
-  height: 1px;
-}
-
-.brand-symbol::after {
-  top: 5px;
-  left: 50%;
-  width: 1px;
-  height: 18px;
+  display: block;
+  flex: 0 0 auto;
 }
 
 .brand strong {
