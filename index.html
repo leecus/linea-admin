@@ -1,0 +1,1117 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linea Admin Design System</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="ds-topbar">
+      <a class="brand" href="#intro" aria-label="Linea Admin Design System">
+        <span class="brand-symbol" aria-hidden="true"></span>
+        <span>
+          <strong>Linea Admin</strong>
+          <small>DESIGN SYSTEM</small>
+        </span>
+      </a>
+
+      <nav class="top-links" aria-label="组件分类导航">
+        <a class="is-active" href="#foundations">基础</a>
+        <a href="#navigation">导航</a>
+        <a href="#actions">操作</a>
+        <a href="#forms">表单</a>
+        <a href="#data">数据</a>
+        <a href="#feedback">反馈</a>
+        <a href="#overlays">覆盖层</a>
+        <a href="#enterprise">业务</a>
+        <a href="#layout">布局</a>
+      </nav>
+
+      <div class="top-tools">
+        <label class="search-field compact">
+          <span aria-hidden="true">⌕</span>
+          <input id="componentSearch" type="search" placeholder="Search..." />
+        </label>
+        <button class="icon-button" type="button" id="openPalette" aria-label="打开命令菜单">⌘</button>
+      </div>
+    </header>
+
+    <main class="page" id="intro">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="kicker">MINIMAL STYLE</span>
+          <h1>极简后台组件库</h1>
+          <p>
+            这个 design style 面向高频后台系统：信息密度足够、视觉负担很低、状态表达克制，
+            用线、留白、字号和灰度建立秩序，而不是靠厚重卡片、阴影和强色块。
+          </p>
+        </div>
+        <aside class="hero-meta" aria-label="系统摘要">
+          <span id="todayText">--</span>
+          <strong>Quiet, precise, operational.</strong>
+          <button class="pill-button dark" type="button" data-toast="Design principles pinned">
+            固定原则
+          </button>
+        </aside>
+      </section>
+
+      <section class="philosophy-band" aria-labelledby="philosophyTitle">
+        <div class="section-label">PHILOSOPHY</div>
+        <div class="philosophy-content">
+          <div>
+            <h2 id="philosophyTitle">设计哲学</h2>
+            <p>
+              后台不是展示空间，而是决策空间。这个风格的目标不是“空”，而是把视觉噪音压到最低，
+              让用户在列表、状态、筛选和操作之间快速建立判断。
+            </p>
+          </div>
+          <ol class="principle-list">
+            <li>
+              <strong>少即是可控</strong>
+              <span>默认只暴露必要信息，更多动作以轻按钮、弹层或详情区承接。</span>
+            </li>
+            <li>
+              <strong>线条就是结构</strong>
+              <span>使用 1px 分割线和稳定栅格组织页面，减少容器装饰。</span>
+            </li>
+            <li>
+              <strong>颜色只表达状态</strong>
+              <span>黑白灰承担层级，低饱和绿、铜、蓝灰只用于成功、风险、等待。</span>
+            </li>
+            <li>
+              <strong>动效服务反馈</strong>
+              <span>交互动效短、轻、可忽略，不抢走业务信息的注意力。</span>
+            </li>
+            <li>
+              <strong>组件先为扫描而生</strong>
+              <span>标题、数值、标签和操作区有固定节奏，让复杂页面也能被快速扫读。</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="component-section" id="foundations" data-search="基础 token 颜色 字体 间距 图标">
+        <div class="section-head">
+          <div>
+            <span class="kicker">FOUNDATIONS</span>
+            <h2>基础规范</h2>
+          </div>
+          <span class="mono-note">Tokens / Type / Rhythm</span>
+        </div>
+
+        <div class="foundation-grid">
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">PALETTE</span>
+              <strong>色彩</strong>
+            </div>
+            <div class="swatch-grid">
+              <div><i style="--swatch: #030303"></i><span>Black</span><code>#030303</code></div>
+              <div><i style="--swatch: #1f1f1d"></i><span>Ink</span><code>#1F1F1D</code></div>
+              <div><i style="--swatch: #8c8b86"></i><span>Muted</span><code>#8C8B86</code></div>
+              <div><i style="--swatch: #dcdad4"></i><span>Line</span><code>#DCDAD4</code></div>
+              <div><i style="--swatch: #f7f7f4"></i><span>Paper</span><code>#F7F7F4</code></div>
+              <div><i style="--swatch: #6e806b"></i><span>Success</span><code>#6E806B</code></div>
+              <div><i style="--swatch: #9a735d"></i><span>Risk</span><code>#9A735D</code></div>
+              <div><i style="--swatch: #687d8a"></i><span>Info</span><code>#687D8A</code></div>
+            </div>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">TYPE</span>
+              <strong>字体层级</strong>
+            </div>
+            <div class="type-scale">
+              <div>
+                <span>Display</span>
+                <strong>运营控制台</strong>
+              </div>
+              <div>
+                <span>Heading</span>
+                <strong>待处理事项</strong>
+              </div>
+              <div>
+                <span>Body</span>
+                <p>后台页面正文保持清晰、低噪音、可持续阅读。</p>
+              </div>
+              <div>
+                <span>Mono Label</span>
+                <code>STATUS / 09:42 / #OA-1048</code>
+              </div>
+            </div>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">SPACING</span>
+              <strong>节奏</strong>
+            </div>
+            <div class="spacing-rules">
+              <div><i style="width: 8px"></i><span>8</span></div>
+              <div><i style="width: 16px"></i><span>16</span></div>
+              <div><i style="width: 24px"></i><span>24</span></div>
+              <div><i style="width: 42px"></i><span>42</span></div>
+              <div><i style="width: 64px"></i><span>64</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="component-section" id="navigation" data-search="导航 顶部导航 侧边导航 面包屑 标签页 步骤 菜单 锚点">
+        <div class="section-head">
+          <div>
+            <span class="kicker">NAVIGATION</span>
+            <h2>导航组件</h2>
+          </div>
+          <span class="mono-note">Topbar / Tabs / Steps</span>
+        </div>
+
+        <div class="demo-topnav">
+          <a class="brand compact-brand" href="#">
+            <span class="brand-symbol" aria-hidden="true"></span>
+            <span><strong>Ops</strong><small>CONSOLE</small></span>
+          </a>
+          <nav class="sample-links" aria-label="示例顶部导航">
+            <a class="is-active" href="#">概览</a>
+            <a href="#">订单</a>
+            <a href="#">客户</a>
+            <a href="#">设置</a>
+          </nav>
+          <button class="avatar-button" type="button">MO</button>
+        </div>
+
+        <div class="two-column">
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">BREADCRUMB</span>
+              <strong>路径</strong>
+            </div>
+            <nav class="breadcrumb" aria-label="面包屑">
+              <a href="#">工作台</a>
+              <span>/</span>
+              <a href="#">订单</a>
+              <span>/</span>
+              <strong>详情</strong>
+            </nav>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">STEPS</span>
+              <strong>步骤</strong>
+            </div>
+            <ol class="stepper">
+              <li class="is-done"><span>1</span><strong>提交</strong></li>
+              <li class="is-active"><span>2</span><strong>复核</strong></li>
+              <li><span>3</span><strong>发布</strong></li>
+            </ol>
+          </article>
+        </div>
+
+        <article class="specimen">
+          <div class="specimen-head">
+            <span class="label">TABS</span>
+            <strong>标签页</strong>
+          </div>
+          <div class="tabs-demo">
+            <div class="underline-tabs" role="tablist">
+              <button class="is-active" type="button" role="tab" aria-selected="true" data-panel="panel-live">
+                实时
+              </button>
+              <button type="button" role="tab" aria-selected="false" data-panel="panel-history">
+                历史
+              </button>
+              <button type="button" role="tab" aria-selected="false" data-panel="panel-rules">
+                规则
+              </button>
+            </div>
+            <div class="tab-panels">
+              <p class="tab-panel is-active" id="panel-live">实时指标以短周期刷新，适合运营值班场景。</p>
+              <p class="tab-panel" id="panel-history">历史指标强调趋势对比，适合复盘和报表。</p>
+              <p class="tab-panel" id="panel-rules">规则指标用于展示阈值、策略和自动化条件。</p>
+            </div>
+          </div>
+        </article>
+
+        <div class="three-column">
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">SIDE NAV</span>
+              <strong>侧边导航</strong>
+            </div>
+            <nav class="side-nav-demo" aria-label="侧边导航示例">
+              <a class="is-active" href="#"><span>⌂</span>概览</a>
+              <a href="#"><span>□</span>订单管理</a>
+              <a href="#"><span>○</span>客户资产</a>
+              <a href="#"><span>⌁</span>自动化</a>
+            </nav>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">SUB MENU</span>
+              <strong>二级菜单</strong>
+            </div>
+            <div class="sub-menu-demo">
+              <button type="button">订单中心 <span>−</span></button>
+              <a class="is-active" href="#">全部订单</a>
+              <a href="#">退款审核</a>
+              <a href="#">发票管理</a>
+            </div>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">ANCHOR</span>
+              <strong>锚点导航</strong>
+            </div>
+            <nav class="anchor-list" aria-label="锚点示例">
+              <a class="is-active" href="#foundations">基础规范</a>
+              <a href="#forms">表单组件</a>
+              <a href="#data">数据展示</a>
+              <a href="#feedback">反馈组件</a>
+            </nav>
+          </article>
+        </div>
+      </section>
+
+      <section class="component-section" id="actions" data-search="按钮 操作 分段 分页 下拉 工具栏 分裂按钮 按钮组">
+        <div class="section-head">
+          <div>
+            <span class="kicker">ACTIONS</span>
+            <h2>操作组件</h2>
+          </div>
+          <span class="mono-note">Buttons / Menus / Pagination</span>
+        </div>
+
+        <article class="specimen">
+          <div class="specimen-head">
+            <span class="label">BUTTONS</span>
+            <strong>按钮状态</strong>
+          </div>
+          <div class="button-matrix">
+            <button class="text-button" type="button">Default</button>
+            <button class="text-button dark" type="button">Primary</button>
+            <button class="text-button ghost" type="button">Ghost</button>
+            <button class="text-button risk" type="button">Risk</button>
+            <button class="text-button" type="button" disabled>Disabled</button>
+            <button class="icon-button" type="button" aria-label="新增">＋</button>
+            <button class="icon-button" type="button" aria-label="关闭">×</button>
+            <button class="icon-button" type="button" aria-label="更多">⋯</button>
+          </div>
+        </article>
+
+        <div class="two-column">
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">SEGMENTED</span>
+              <strong>分段控制</strong>
+            </div>
+            <div class="segmented" role="tablist">
+              <button class="is-active" type="button" role="tab" aria-selected="true">今日</button>
+              <button type="button" role="tab" aria-selected="false">7 天</button>
+              <button type="button" role="tab" aria-selected="false">30 天</button>
+            </div>
+          </article>
+
+          <article class="specimen menu-specimen">
+            <div class="specimen-head">
+              <span class="label">MENU</span>
+              <strong>菜单</strong>
+            </div>
+            <button class="text-button" type="button" id="menuButton" aria-expanded="false">
+              更多操作
+            </button>
+            <div class="action-menu" id="actionMenu" aria-label="更多操作菜单">
+              <button type="button">导出数据</button>
+              <button type="button">批量归档</button>
+              <button type="button">查看日志</button>
+            </div>
+          </article>
+        </div>
+
+        <article class="specimen">
+          <div class="specimen-head">
+            <span class="label">TOOLBAR</span>
+            <strong>工具栏与分页</strong>
+          </div>
+          <div class="toolbar-line">
+            <div class="command-group">
+              <button class="icon-button compact" type="button" aria-label="上一页">‹</button>
+              <button class="icon-button compact" type="button" aria-label="下一页">›</button>
+              <button class="icon-button compact" type="button" aria-label="刷新">↻</button>
+            </div>
+            <nav class="pagination" aria-label="分页">
+              <button type="button">Prev</button>
+              <button class="is-active" type="button">1</button>
+              <button type="button">2</button>
+              <button type="button">3</button>
+              <button type="button">Next</button>
+            </nav>
+          </div>
+        </article>
+
+        <div class="three-column action-extras">
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">GROUP</span>
+              <strong>按钮组</strong>
+            </div>
+            <div class="button-group" role="group" aria-label="批量操作">
+              <button type="button">审核</button>
+              <button type="button">归档</button>
+              <button type="button">转交</button>
+            </div>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">SPLIT</span>
+              <strong>分裂按钮</strong>
+            </div>
+            <div class="split-button">
+              <button type="button">发布</button>
+              <button type="button" aria-label="选择发布方式">⌄</button>
+            </div>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">LOADING</span>
+              <strong>加载按钮</strong>
+            </div>
+            <button class="text-button is-loading" type="button">
+              <span aria-hidden="true"></span>
+              同步中
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <section class="component-section" id="forms" data-search="表单 输入框 搜索 选择 开关 单选 多选 滑块 文本域 日期 上传 密码 验证">
+        <div class="section-head">
+          <div>
+            <span class="kicker">FORMS</span>
+            <h2>表单组件</h2>
+          </div>
+          <span class="mono-note">Inputs / Selects / Switches</span>
+        </div>
+
+        <div class="form-grid">
+          <label class="field">
+            <span>项目名称</span>
+            <input type="text" value="运营中台" />
+          </label>
+          <label class="field">
+            <span>搜索</span>
+            <input type="search" placeholder="Search anything..." />
+          </label>
+          <label class="field">
+            <span>负责人</span>
+            <select>
+              <option>Lin</option>
+              <option>Zhao</option>
+              <option>Chen</option>
+            </select>
+          </label>
+          <label class="field is-error">
+            <span>阈值</span>
+            <input type="number" value="102" />
+            <small>建议范围为 0 到 100</small>
+          </label>
+          <label class="field wide">
+            <span>备注</span>
+            <textarea rows="4">只保留影响决策的字段，冗余说明放入详情层。</textarea>
+          </label>
+          <label class="field">
+            <span>日期</span>
+            <input type="date" value="2026-05-26" />
+          </label>
+          <label class="field">
+            <span>时间</span>
+            <input type="time" value="13:42" />
+          </label>
+          <label class="field">
+            <span>密码</span>
+            <input type="password" value="minimalism" />
+          </label>
+          <label class="field">
+            <span>只读字段</span>
+            <input type="text" value="#SYS-1024" readonly />
+          </label>
+        </div>
+
+        <div class="form-grid compact-grid">
+          <fieldset class="choice-group">
+            <legend>选择项</legend>
+            <label><input type="checkbox" checked /> 自动刷新</label>
+            <label><input type="checkbox" /> 只看异常</label>
+            <label><input type="checkbox" /> 同步到日志</label>
+          </fieldset>
+
+          <fieldset class="choice-group">
+            <legend>展示密度</legend>
+            <label><input type="radio" name="density" checked /> 标准</label>
+            <label><input type="radio" name="density" /> 紧凑</label>
+            <label><input type="radio" name="density" /> 宽松</label>
+          </fieldset>
+
+          <div class="switch-stack">
+            <label class="switch-field">
+              <input type="checkbox" checked />
+              <span class="switch-track" aria-hidden="true"></span>
+              <strong>通知</strong>
+            </label>
+            <label class="switch-field">
+              <input type="checkbox" />
+              <span class="switch-track" aria-hidden="true"></span>
+              <strong>维护模式</strong>
+            </label>
+          </div>
+
+          <label class="range-field">
+            <span>风险阈值 <strong id="rangeValue">62</strong></span>
+            <input id="riskRange" type="range" min="0" max="100" value="62" />
+          </label>
+        </div>
+
+        <div class="three-column form-extras">
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">INPUT GROUP</span>
+              <strong>组合输入</strong>
+            </div>
+            <label class="input-group">
+              <span>https://</span>
+              <input type="text" value="admin.example.com" />
+              <strong>.cn</strong>
+            </label>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">UPLOAD</span>
+              <strong>上传</strong>
+            </div>
+            <label class="upload-zone">
+              <input type="file" />
+              <span>＋</span>
+              <strong>上传附件</strong>
+              <small>PDF, XLSX, CSV</small>
+            </label>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">VERIFY</span>
+              <strong>验证码</strong>
+            </div>
+            <div class="otp-field" aria-label="验证码输入示例">
+              <input type="text" value="1" maxlength="1" />
+              <input type="text" value="0" maxlength="1" />
+              <input type="text" value="4" maxlength="1" />
+              <input type="text" value="8" maxlength="1" />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="component-section" id="data" data-search="数据 指标 表格 标签 进度 图表 时间线 列表 描述 头像 徽标 树 日历">
+        <div class="section-head">
+          <div>
+            <span class="kicker">DATA DISPLAY</span>
+            <h2>数据展示</h2>
+          </div>
+          <span class="mono-note">Metrics / Table / Charts</span>
+        </div>
+
+        <div class="metric-strip">
+          <article>
+            <span class="label">REVENUE</span>
+            <strong>¥ 482,960</strong>
+            <small class="positive">+12.8%</small>
+          </article>
+          <article>
+            <span class="label">ORDERS</span>
+            <strong>1,248</strong>
+            <small>96 pending</small>
+          </article>
+          <article>
+            <span class="label">SLA</span>
+            <strong>99.96%</strong>
+            <small>stable</small>
+          </article>
+          <article>
+            <span class="label">RISK</span>
+            <strong>7</strong>
+            <small class="risk-text">2 urgent</small>
+          </article>
+        </div>
+
+        <article class="specimen table-specimen">
+          <div class="specimen-head">
+            <span class="label">TABLE</span>
+            <strong>表格</strong>
+          </div>
+          <div class="table-tools">
+            <label class="search-field">
+              <span aria-hidden="true">⌕</span>
+              <input id="tableSearch" type="search" placeholder="Search table..." />
+            </label>
+            <label class="inline-select">
+              <span>状态</span>
+              <select id="tableStatus">
+                <option value="all">全部</option>
+                <option value="running">进行中</option>
+                <option value="review">待审核</option>
+                <option value="blocked">阻塞</option>
+              </select>
+            </label>
+          </div>
+          <div class="table-frame">
+            <table>
+              <thead>
+                <tr>
+                  <th>任务</th>
+                  <th>负责人</th>
+                  <th>状态</th>
+                  <th>优先级</th>
+                  <th>时间</th>
+                </tr>
+              </thead>
+              <tbody id="componentTable">
+                <tr data-state="review">
+                  <td><strong>企业认证资料复核</strong><span>#OA-1048</span></td>
+                  <td>Lin</td>
+                  <td><mark class="tag info">待审核</mark></td>
+                  <td>High</td>
+                  <td>09:42</td>
+                </tr>
+                <tr data-state="running">
+                  <td><strong>分账规则批量同步</strong><span>#FN-2361</span></td>
+                  <td>Zhao</td>
+                  <td><mark class="tag ok">进行中</mark></td>
+                  <td>Medium</td>
+                  <td>10:18</td>
+                </tr>
+                <tr data-state="blocked">
+                  <td><strong>库存预警阈值调整</strong><span>#ST-0917</span></td>
+                  <td>Chen</td>
+                  <td><mark class="tag risk">阻塞</mark></td>
+                  <td>High</td>
+                  <td>11:03</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <div class="two-column">
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">PROGRESS</span>
+              <strong>进度</strong>
+            </div>
+            <div class="progress-stack">
+              <div><span>订单审核</span><strong>86%</strong><i style="--value: 86%"></i></div>
+              <div><span>发票开具</span><strong>64%</strong><i style="--value: 64%"></i></div>
+              <div><span>售后响应</span><strong>92%</strong><i style="--value: 92%"></i></div>
+            </div>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">RING</span>
+              <strong>环形进度</strong>
+            </div>
+            <div class="ring-demo">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="ring-bg" cx="60" cy="60" r="44"></circle>
+                <circle class="ring-value" cx="60" cy="60" r="44"></circle>
+              </svg>
+              <div><strong>75%</strong><span>3 of 4 done</span></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="two-column">
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">CHART</span>
+              <strong>轻量图表</strong>
+            </div>
+            <div class="bar-chart" aria-label="七日数据">
+              <span style="--h: 36%"></span>
+              <span style="--h: 58%"></span>
+              <span style="--h: 44%"></span>
+              <span style="--h: 76%"></span>
+              <span style="--h: 68%"></span>
+              <span style="--h: 88%"></span>
+              <span style="--h: 52%"></span>
+            </div>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">TIMELINE</span>
+              <strong>时间线</strong>
+            </div>
+            <ol class="timeline">
+              <li><time>12:08</time><span>支付网关延迟恢复</span></li>
+              <li><time>10:35</time><span>自动化任务完成 18 项</span></li>
+              <li><time>09:12</time><span>新增风控策略上线</span></li>
+            </ol>
+          </article>
+        </div>
+
+        <div class="three-column">
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">DESCRIPTION</span>
+              <strong>描述列表</strong>
+            </div>
+            <dl class="description-list">
+              <div><dt>Owner</dt><dd>Chen</dd></div>
+              <div><dt>Priority</dt><dd>High</dd></div>
+              <div><dt>Updated</dt><dd>11:03</dd></div>
+            </dl>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">BADGES</span>
+              <strong>头像与徽标</strong>
+            </div>
+            <div class="avatar-stack">
+              <span>LN</span>
+              <span>ZH</span>
+              <span>CH</span>
+              <span>+6</span>
+            </div>
+            <div class="badge-row">
+              <mark class="dot-badge ok">在线</mark>
+              <mark class="dot-badge info">排队</mark>
+              <mark class="dot-badge risk">异常</mark>
+            </div>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">TREE</span>
+              <strong>树结构</strong>
+            </div>
+            <ul class="tree-view">
+              <li><span>−</span> 运营后台</li>
+              <li class="child"><span>•</span> 订单域</li>
+              <li class="child"><span>•</span> 客户域</li>
+              <li><span>＋</span> 自动化平台</li>
+            </ul>
+          </article>
+        </div>
+
+        <article class="specimen calendar-specimen">
+          <div class="specimen-head">
+            <span class="label">CALENDAR</span>
+            <strong>日历</strong>
+          </div>
+          <div class="calendar-grid" aria-label="日历示例">
+            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+            <button type="button">18</button><button type="button">19</button><button type="button">20</button>
+            <button type="button">21</button><button type="button">22</button><button type="button">23</button><button type="button">24</button>
+            <button type="button">25</button><button class="is-active" type="button">26</button><button type="button">27</button>
+            <button type="button">28</button><button type="button">29</button><button type="button">30</button><button type="button">31</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="component-section" id="feedback" data-search="反馈 提示 弹窗 模态框 toast alert skeleton empty accordion result loading">
+        <div class="section-head">
+          <div>
+            <span class="kicker">FEEDBACK</span>
+            <h2>反馈组件</h2>
+          </div>
+          <span class="mono-note">Alert / Modal / Toast / Empty</span>
+        </div>
+
+        <div class="feedback-grid">
+          <div class="notice info">
+            <strong>信息提示</strong>
+            <span>新配置将在下一次同步后生效。</span>
+          </div>
+          <div class="notice success">
+            <strong>成功提示</strong>
+            <span>全部任务已进入自动处理队列。</span>
+          </div>
+          <div class="notice warning">
+            <strong>风险提示</strong>
+            <span>当前阈值高于建议范围。</span>
+          </div>
+        </div>
+
+        <div class="two-column">
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">DIALOG</span>
+              <strong>模态框</strong>
+            </div>
+            <button class="text-button dark" type="button" id="openModal">打开弹窗</button>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">TOAST</span>
+              <strong>短反馈</strong>
+            </div>
+            <button class="text-button" type="button" data-toast="Saved at 13:42">显示 Toast</button>
+          </article>
+        </div>
+
+        <div class="two-column">
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">SKELETON</span>
+              <strong>加载态</strong>
+            </div>
+            <div class="skeleton-stack" aria-label="加载态">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </article>
+
+          <article class="specimen empty-state">
+            <span class="empty-mark" aria-hidden="true"></span>
+            <strong>暂无结果</strong>
+            <p>当前筛选条件下没有可展示的数据。</p>
+            <button class="text-button" type="button">重置筛选</button>
+          </article>
+        </div>
+
+        <article class="specimen">
+          <div class="specimen-head">
+            <span class="label">ACCORDION</span>
+            <strong>折叠面板</strong>
+          </div>
+          <div class="accordion">
+            <button type="button" aria-expanded="true">
+              组件什么时候使用状态色？
+              <span>−</span>
+            </button>
+            <div class="accordion-panel is-open">
+              <p>只在状态、风险、进度和反馈中使用；普通信息保持黑白灰层级。</p>
+            </div>
+            <button type="button" aria-expanded="false">
+              为什么页面不用重阴影？
+              <span>＋</span>
+            </button>
+            <div class="accordion-panel">
+              <p>后台系统更依赖扫描效率，阴影会抬高噪音。这里用线条和间距建立空间关系。</p>
+            </div>
+          </div>
+        </article>
+
+        <div class="three-column">
+          <article class="specimen result-state">
+            <span class="result-mark ok" aria-hidden="true">✓</span>
+            <strong>发布成功</strong>
+            <p>配置已进入灰度队列。</p>
+          </article>
+          <article class="specimen result-state">
+            <span class="result-mark info" aria-hidden="true">i</span>
+            <strong>等待确认</strong>
+            <p>需要负责人完成二次复核。</p>
+          </article>
+          <article class="specimen result-state">
+            <span class="result-mark risk" aria-hidden="true">!</span>
+            <strong>执行阻塞</strong>
+            <p>依赖服务未通过健康检查。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="component-section" id="overlays" data-search="覆盖层 抽屉 popover tooltip 通知 command palette hover 气泡卡片">
+        <div class="section-head">
+          <div>
+            <span class="kicker">OVERLAYS</span>
+            <h2>覆盖层组件</h2>
+          </div>
+          <span class="mono-note">Drawer / Popover / Tooltip</span>
+        </div>
+
+        <div class="three-column">
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">DRAWER</span>
+              <strong>抽屉</strong>
+            </div>
+            <button class="text-button dark" type="button" id="openDrawer">打开详情抽屉</button>
+          </article>
+
+          <article class="specimen popover-specimen">
+            <div class="specimen-head">
+              <span class="label">POPOVER</span>
+              <strong>气泡卡片</strong>
+            </div>
+            <button class="text-button" type="button" id="popoverButton" aria-expanded="false">
+              查看说明
+            </button>
+            <div class="popover-card" id="popoverCard">
+              <strong>轻量说明</strong>
+              <p>用于解释不常见动作，不承载复杂表单。</p>
+            </div>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">TOOLTIP</span>
+              <strong>提示</strong>
+            </div>
+            <div class="tooltip-row">
+              <button class="icon-button" type="button" data-tip="刷新数据">↻</button>
+              <button class="icon-button" type="button" data-tip="导出报表">⇣</button>
+              <button class="icon-button" type="button" data-tip="查看日志">≡</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="two-column">
+          <article class="specimen notification-demo">
+            <div class="specimen-head">
+              <span class="label">NOTIFICATION</span>
+              <strong>通知</strong>
+            </div>
+            <div class="notification-item">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              <div>
+                <strong>同步完成</strong>
+                <p>18 个自动化任务已完成。</p>
+              </div>
+              <time>now</time>
+            </div>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">COMMAND</span>
+              <strong>命令面板</strong>
+            </div>
+            <div class="command-demo">
+              <label class="search-field">
+                <span aria-hidden="true">⌕</span>
+                <input type="search" placeholder="Type a command..." />
+              </label>
+              <button type="button">Jump to Orders <span>⌘O</span></button>
+              <button type="button">Open Settings <span>⌘,</span></button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="component-section" id="enterprise" data-search="业务 复合组件 transfer 穿梭框 看板 权限矩阵 文件列表 评论 审批">
+        <div class="section-head">
+          <div>
+            <span class="kicker">ENTERPRISE</span>
+            <h2>业务复合组件</h2>
+          </div>
+          <span class="mono-note">Transfer / Kanban / Permission</span>
+        </div>
+
+        <div class="two-column">
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">TRANSFER</span>
+              <strong>穿梭框</strong>
+            </div>
+            <div class="transfer">
+              <div>
+                <strong>待选成员</strong>
+                <label><input type="checkbox" checked /> Lin</label>
+                <label><input type="checkbox" /> Zhao</label>
+                <label><input type="checkbox" /> Qiu</label>
+              </div>
+              <div class="transfer-actions">
+                <button class="icon-button compact" type="button" aria-label="右移">›</button>
+                <button class="icon-button compact" type="button" aria-label="左移">‹</button>
+              </div>
+              <div>
+                <strong>已选成员</strong>
+                <label><input type="checkbox" checked /> Chen</label>
+                <label><input type="checkbox" /> Ops Bot</label>
+              </div>
+            </div>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">KANBAN</span>
+              <strong>看板</strong>
+            </div>
+            <div class="kanban">
+              <section>
+                <span>Todo</span>
+                <button type="button">企业认证复核</button>
+                <button type="button">权益配置检查</button>
+              </section>
+              <section>
+                <span>Doing</span>
+                <button type="button">分账规则同步</button>
+              </section>
+              <section>
+                <span>Done</span>
+                <button type="button">监控策略上线</button>
+              </section>
+            </div>
+          </article>
+        </div>
+
+        <div class="two-column">
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">PERMISSION</span>
+              <strong>权限矩阵</strong>
+            </div>
+            <div class="permission-grid">
+              <span></span><strong>读</strong><strong>写</strong><strong>发布</strong>
+              <strong>订单</strong><input type="checkbox" checked /><input type="checkbox" checked /><input type="checkbox" />
+              <strong>客户</strong><input type="checkbox" checked /><input type="checkbox" /><input type="checkbox" />
+              <strong>财务</strong><input type="checkbox" checked /><input type="checkbox" /><input type="checkbox" />
+            </div>
+          </article>
+
+          <article class="specimen">
+            <div class="specimen-head">
+              <span class="label">FILE LIST</span>
+              <strong>文件列表</strong>
+            </div>
+            <div class="file-list">
+              <div><span>CSV</span><strong>orders-0526.csv</strong><small>2.4 MB</small></div>
+              <div><span>XLS</span><strong>members.xlsx</strong><small>860 KB</small></div>
+              <div><span>PDF</span><strong>audit-report.pdf</strong><small>1.1 MB</small></div>
+            </div>
+          </article>
+        </div>
+
+        <article class="specimen">
+          <div class="specimen-head">
+            <span class="label">COMMENTS</span>
+            <strong>审批评论流</strong>
+          </div>
+          <ol class="comment-thread">
+            <li>
+              <span>LN</span>
+              <div><strong>Lin</strong><p>已复核合同主体，建议进入下一步审批。</p><time>13:18</time></div>
+            </li>
+            <li>
+              <span>CH</span>
+              <div><strong>Chen</strong><p>库存阈值需要同步调整，避免触发误报。</p><time>13:32</time></div>
+            </li>
+          </ol>
+        </article>
+      </section>
+
+      <section class="component-section" id="layout" data-search="布局 面板 详情 抽屉 列表 卡片 统计 空间 栅格">
+        <div class="section-head">
+          <div>
+            <span class="kicker">LAYOUT</span>
+            <h2>布局模式</h2>
+          </div>
+          <span class="mono-note">Bands / Panels / Detail</span>
+        </div>
+
+        <div class="layout-specimen">
+          <section class="layout-main">
+            <div class="panel-head">
+              <div>
+                <span class="label">QUEUE</span>
+                <h3>任务队列</h3>
+              </div>
+              <button class="icon-button compact" type="button" aria-label="新增">＋</button>
+            </div>
+            <div class="task-list">
+              <button type="button">
+                <span><strong>合同归档校验</strong><small>#CT-1182</small></span>
+                <mark class="tag ok">进行中</mark>
+              </button>
+              <button type="button">
+                <span><strong>客户等级批量同步</strong><small>#MB-8802</small></span>
+                <mark class="tag info">待审核</mark>
+              </button>
+              <button type="button">
+                <span><strong>库存预警策略</strong><small>#ST-0917</small></span>
+                <mark class="tag risk">阻塞</mark>
+              </button>
+            </div>
+          </section>
+
+          <aside class="layout-detail">
+            <span class="label">DETAIL</span>
+            <h3>详情面板</h3>
+            <p>详情面板固定在右侧，不打断主列表扫描；复杂编辑再进入弹层或独立页面。</p>
+            <dl>
+              <div><dt>Owner</dt><dd>Chen</dd></div>
+              <div><dt>Priority</dt><dd>High</dd></div>
+              <div><dt>Updated</dt><dd>11:03</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Saved</div>
+
+    <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+      <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-head">
+          <div>
+            <span class="label">CONFIRM</span>
+            <h2 id="modalTitle">发布配置</h2>
+          </div>
+          <button class="icon-button compact" type="button" id="closeModal" aria-label="关闭">×</button>
+        </div>
+        <p>发布后，新规则会进入自动化队列，并在下一次同步窗口生效。</p>
+        <div class="modal-actions">
+          <button class="text-button" type="button" id="cancelModal">取消</button>
+          <button class="text-button dark" type="button" data-toast="Configuration published">确认发布</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true">
+      <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+        <div class="modal-head">
+          <div>
+            <span class="label">DETAIL</span>
+            <h2 id="drawerTitle">任务详情</h2>
+          </div>
+          <button class="icon-button compact" type="button" id="closeDrawer" aria-label="关闭">×</button>
+        </div>
+        <dl class="description-list drawer-list">
+          <div><dt>Task</dt><dd>库存预警策略</dd></div>
+          <div><dt>Owner</dt><dd>Chen</dd></div>
+          <div><dt>Status</dt><dd><mark class="tag risk">阻塞</mark></dd></div>
+          <div><dt>Updated</dt><dd>11:03</dd></div>
+        </dl>
+        <p>抽屉用于查看或轻量编辑，不打断当前列表上下文。复杂流程仍建议进入独立详情页。</p>
+      </aside>
+    </div>
+
+    <div class="command-palette" id="commandPalette" aria-hidden="true">
+      <div class="palette-panel">
+        <label class="search-field">
+          <span aria-hidden="true">⌕</span>
+          <input type="search" placeholder="Jump to component..." />
+        </label>
+        <a href="#foundations">基础规范</a>
+        <a href="#forms">表单组件</a>
+        <a href="#data">数据展示</a>
+        <a href="#feedback">反馈组件</a>
+        <a href="#overlays">覆盖层组件</a>
+        <a href="#enterprise">业务复合组件</a>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
